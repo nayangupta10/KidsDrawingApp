@@ -21,9 +21,8 @@
             android:id="@+id/ivBackground"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:contentDescription="image background"
-            android:scaleType="centerCrop"
-            android:src="@drawable/image" />
+            android:contentDescription="background image"
+            android:scaleType="centerCrop" />
 
         <com.nayan.kidsdrawingapp.DrawingView
             android:id="@+id/drawingView"
@@ -36,10 +35,10 @@
         android:id="@+id/llPaintColor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:background="#80FFFFFF"
+        android:gravity="center"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@id/ibBrush"
+        app:layout_constraintBottom_toTopOf="@id/ll_action_buttons"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/flDrawingViewContainer">
@@ -144,15 +143,33 @@
             android:tag="@color/white" />
     </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/ibBrush"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/ll_action_buttons"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:contentDescription="brush"
-        android:src="@drawable/ic_brush"
+        android:gravity="center"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/llPaintColor" />
+        app:layout_constraintTop_toBottomOf="@id/llPaintColor">
+
+        <ImageButton
+            android:id="@+id/ibGallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="gallery image"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_gallery" />
+
+        <ImageButton
+            android:id="@+id/ibBrush"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="brush image"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_brush" />
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

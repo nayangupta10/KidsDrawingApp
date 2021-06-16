@@ -17,9 +17,17 @@ class DrawingView(context: Context, attrs: AttributeSet) : View(context, attrs) 
     private var color = Color.BLACK
     private var canvas: Canvas? = null
     private var mPaths = ArrayList<CustomPath>()
+    private var mUndoPath = ArrayList<CustomPath>()
 
     init {
         setUpDrawing()
+    }
+
+    fun onClickUndo() {
+        if (mPaths.size > 0) {
+            mUndoPath.add(mPaths.removeAt(mPaths.size - 1))
+            invalidate()
+        }
     }
 
     private fun setUpDrawing() {
@@ -30,7 +38,7 @@ class DrawingView(context: Context, attrs: AttributeSet) : View(context, attrs) 
         mDrawPaint!!.strokeJoin = Paint.Join.ROUND
         mDrawPaint!!.strokeCap = Paint.Cap.ROUND
         mCanvasPaint = Paint(Paint.DITHER_FLAG)
-    //    mBrushSize = 20.toFloat()
+        //    mBrushSize = 20.toFloat()
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
@@ -96,13 +104,13 @@ class DrawingView(context: Context, attrs: AttributeSet) : View(context, attrs) 
                 newSize,
                 resources.displayMetrics
             )
-        mDrawPaint!!.strokeWidth=mBrushSize
+        mDrawPaint!!.strokeWidth = mBrushSize
 
     }
 
-    fun setColor(newColor: String){
-        color=Color.parseColor(newColor)
-        mDrawPaint!!.color=color
+    fun setColor(newColor: String) {
+        color = Color.parseColor(newColor)
+        mDrawPaint!!.color = color
 
     }
 

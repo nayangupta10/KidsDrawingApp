@@ -160,7 +160,17 @@
             android:layout_height="wrap_content"
             android:contentDescription="gallery image"
             android:scaleType="fitXY"
+            android:layout_margin="5dp"
             android:src="@drawable/ic_gallery" />
+
+        <ImageButton
+            android:id="@+id/ibUndo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="undo image"
+            android:scaleType="fitXY"
+            android:layout_margin="5dp"
+            android:src="@drawable/ic_undo" />
 
         <ImageButton
             android:id="@+id/ibBrush"
@@ -168,6 +178,7 @@
             android:layout_height="wrap_content"
             android:contentDescription="brush image"
             android:scaleType="fitXY"
+            android:layout_margin="5dp"
             android:src="@drawable/ic_brush" />
     </LinearLayout>
 

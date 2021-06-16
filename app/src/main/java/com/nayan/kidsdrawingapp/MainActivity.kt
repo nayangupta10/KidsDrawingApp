@@ -39,6 +39,19 @@ class MainActivity : AppCompatActivity() {
         ibBrush.setOnClickListener {
             showBrushSizeChooserDialog()
         }
+
+        ibGallery.setOnClickListener {
+            if (isReadStorageAllowed()) {
+                //run our code to get image from gallery
+
+            } else {
+                requestStoragePermission()
+            }
+        }
+
+        ibUndo.setOnClickListener {
+            drawingView.onClickUndo()
+        }
     }
 
     private fun showBrushSizeChooserDialog() {
@@ -60,15 +73,6 @@ class MainActivity : AppCompatActivity() {
         brushSizeDialog.ibLarge.setOnClickListener {
             drawingView.setSizeForBrush(30.toFloat())
             brushSizeDialog.dismiss()
-        }
-
-        ibGallery.setOnClickListener {
-            if (isReadStorageAllowed()) {
-                //run our code to get image from gallery
-
-            } else {
-                requestStoragePermission()
-            }
         }
     }
 
